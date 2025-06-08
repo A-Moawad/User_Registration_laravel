@@ -5,7 +5,7 @@ use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 // Home or welcome page
-Route::view('/', 'welcome')->name('home');
+Route::view('/', 'home')->name('home');
 
 // Register page route
 Route::view('/register', 'register')->name('register');
