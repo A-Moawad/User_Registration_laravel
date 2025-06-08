@@ -1,28 +1,29 @@
 <?php
 
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
-// Home or welcome page
 Route::view('/', 'home')->name('home');
 
-// Register page route
-Route::view('/register', 'register')->name('register');
-Route::post('/register', [RegisterController::class, 'register'])->name('register.submit');
-
-// Login page route
-Route::view('/login', 'login')->name('login');
-Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
-
-
-// Profile page route (make sure you have a profile.blade.php view)
+// Profile page route
 Route::view('/profile', 'profile')->name('profile');
 
+// Registration routes
+Route::get('/register', [UserController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [UserController::class, 'register'])->name('register.submit');
+
+// Login routes
+Route::get('/login', [UserController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [UserController::class, 'login'])->name('login.submit');
+
 // Logout route
+<<<<<<< HEAD
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 // Add these two new routes for registration
 // Route::get ('/register', [RegisterController::class, 'create'])->name('register');
 // Route::post('/register', [RegisterController::class, 'store']);
+=======
+Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+>>>>>>> d15e8bd702f1733b03ec4115d23da4dbbbfde93d

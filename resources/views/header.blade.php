@@ -23,7 +23,7 @@
     <!-- Greeting -->
     <div class="hidden md:block">
       @auth
-        <span>Hello, {{ auth()->user()->name }}</span>
+        <span>Hello, {{ auth()->user()->user_name }}</span>
       @else
         <span>Hello, Guest</span>
       @endauth
