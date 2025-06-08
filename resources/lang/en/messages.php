@@ -1,0 +1,33 @@
+<?php
+return [
+    'welcome' => 'Welcome to our website!',
+    'login' => 'Login',
+    'register' => 'Register',
+    'name' => 'Name',
+    "profile" => "Profile",
+    "user_registration" => "User Registration",
+    "hello" => "Hello",
+    "Welcome_to_our_website" => "Welcome to Our Website!",
+    "main_description" => "Explore our latest features, products, and services designed just for you.",
+    "get_started" => "Get Started",
+    "WhyUs" => "Why Choose Us?",
+    "Fast_&_Reliable" => "Fast & Reliable",
+    "Fast_&_Reliable_desc" => "Enjoy blazing fast performance and reliable service for all your needs.",
+    "Secure" => "Secure",
+    "secure_Desc" => "Your data and privacy are our top priority. We use the latest security protocols.",
+    "customer_support" => "Customer Support",
+    "customer_support_desc" => "We’re here to help 24/7. Reach out to us anytime for assistance.",
+    "CopyRights" => "© 2025 User Registration. All rights reserved.",
+    "email" => "Email",
+    "password" =>"Password",
+    "confirm_password" => "Confirm Password",
+    "AlreadyHaveAcc" => "Already have an account?",
+    "login_here" => "Login Here",
+    "Registered_At" => "Registered At",
+    "YouAreNotLoggedIn" =>"You are not logged in.",
+    "DontHaveAcc" => "Don't have an account?",
+    "RegisterHere" => "Register Here",
+    "logout" => "Logout",
+
+
+];
