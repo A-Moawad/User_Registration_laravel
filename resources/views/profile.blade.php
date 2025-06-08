@@ -3,6 +3,9 @@
 @section('content')
 @php
     $user = auth()->user();
+    // Default profile picture if none is set
+    $defaultProfilePhoto = asset('images/default-profile.png'); 
+    // or you can use a URL from a CDN or placeholder service
 @endphp
 
 <div class="max-w-md mx-auto bg-white p-8 rounded shadow-md">
@@ -14,8 +17,13 @@
         </div>
     @endif
 
-    <div class="space-y-4 text-gray-700">
-        <p><strong>Name:</strong> {{ $user && $user->name ? $user->name : 'John Doe' }}</p>
+    <div class="flex flex-col items-center space-y-4 text-gray-700">
+        {{-- Profile Picture --}}
+        <img src="{{ $user && $user->user_image ? asset('images/users/' . $user->user_image) : $defaultProfilePhoto }}"
+             alt="Profile Picture"
+             class="w-24 h-24 rounded-full object-cover shadow-md">
+
+        <p><strong>Name:</strong> {{ $user && $user->user_name ? $user->user_name : 'John Doe' }}</p>
         <p><strong>Email:</strong> {{ $user && $user->email ? $user->email : 'john.doe@example.com' }}</p>
         <p><strong>Registered At:</strong>
             {{ $user && $user->created_at ? $user->created_at->format('M d, Y') : 'Jan 01, 2023' }}
