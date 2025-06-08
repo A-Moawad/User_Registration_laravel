@@ -21,3 +21,8 @@ Route::view('/profile', 'profile')->name('profile');
 
 // Logout route
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+
+// Add these two new routes for registration
+// Route::get ('/register', [RegisterController::class, 'create'])->name('register');
+// Route::post('/register', [RegisterController::class, 'store']);

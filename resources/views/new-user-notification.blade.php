@@ -1,0 +1,1 @@
+<p>A new user {{ $user->name }} is registered to the system.</p>

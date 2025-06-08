@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+
+use App\Mail\NewUserRegisteredMail;
 
 class RegisterController extends Controller
 {
@@ -24,11 +27,15 @@ class RegisterController extends Controller
         ]);
 
         // Create user
-        User::create([
+        $user = User::create([  //i just changed this line to use User::create
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+         // Send the email notification to the system admin 
+        Mail::to('admin@example.com')->send(new NewUserRegisteredMail($user));
+
 
         // Redirect or show success
         return redirect()->route('login')->with('success', 'Registration successful! You can now log in.');
