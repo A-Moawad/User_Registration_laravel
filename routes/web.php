@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Middleware\SetLocale;  
+use App\Http\Middleware\SetLocale;  
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WhatsAppCheckController;
 use Illuminate\Support\Facades\Route;
