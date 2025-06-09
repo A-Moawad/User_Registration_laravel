@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WhatsAppCheckController;
 
 Route::view('/', 'home')->name('home');
 
@@ -18,3 +19,8 @@ Route::post('/login', [UserController::class, 'login'])->name('login.submit');
 
 // Logout route
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+
+
+
+Route::get('/check-whatsapp', [WhatsAppCheckController::class, 'check']);
+
