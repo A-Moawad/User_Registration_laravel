@@ -11,9 +11,12 @@
                 <p class="text-lg md:text-2xl mb-8">
                    {{__("messages.main_description")}}
                 </p>
+                @guest
                 <a href="{{ route('register') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full text-lg font-semibold transition">
-                      {{__("messages.get_started")}}
+                    {{ __("messages.get_started") }}
                 </a>
+                @endguest
+
             </div>
         </div>
     </div>

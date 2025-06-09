@@ -9,7 +9,7 @@
 @endphp
 
 <div class="max-w-md mx-auto bg-white p-8 rounded shadow-md">
-    <h2 class="text-2xl font-bold mb-6 text-center">User Profile</h2>
+    <h2 class="text-2xl font-bold mb-6 text-center">{{__("messages.profile")}}</h2>
 
     @if (session('status'))
         <div class="mb-4 bg-green-100 text-green-700 p-3 rounded">
@@ -23,9 +23,9 @@
              alt="Profile Picture"
              class="w-24 h-24 rounded-full object-cover shadow-md">
 
-        <p><strong>Name:</strong> {{ $user && $user->user_name ? $user->user_name : 'John Doe' }}</p>
-        <p><strong>Email:</strong> {{ $user && $user->email ? $user->email : 'john.doe@example.com' }}</p>
-        <p><strong>Registered At:</strong>
+        <p><strong>{{__("messages.name")}}:</strong> {{ $user && $user->user_name ? $user->user_name : 'John Doe' }}</p>
+        <p><strong>{{__("messages.email")}}:</strong> {{ $user && $user->email ? $user->email : 'john.doe@example.com' }}</p>
+        <p><strong>{{__("messages.Registered_At")}}:</strong>
             {{ $user && $user->created_at ? $user->created_at->format('M d, Y') : 'Jan 01, 2023' }}
         </p>
     </div>
@@ -35,14 +35,14 @@
             <a href="{{ route('logout') }}"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                 class="inline-block bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition">
-                Logout
+                {{__("messages.logout")}}
             </a>
 
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
                 @csrf
             </form>
         @else
-            <p class="text-gray-500">You are not logged in.</p>
+            <p class="text-gray-500">{{__("messages.YouAreNotLoggedIn")}}</p>
         @endif
     </div>
 </div>
