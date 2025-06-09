@@ -1,7 +1,7 @@
 <header class="bg-gray-800 text-white py-4 shadow-md">
   <div class="container mx-auto flex justify-between items-center px-4">
     <a href="{{ route('home') }}" class="flex items-center space-x-2">
-      <h1 class="text-xl font-bold tracking-wide">{{__("messages.user_registration")}}</h1>
+      <h1 class="text-xl font-bold tracking-wide">User Registration</h1>
     </a>
 
     <!-- Hamburger Menu (Mobile) -->
@@ -12,23 +12,20 @@
         </svg>
       </button>
     </div>
-    <a href="{{ url('lang/' . (session('locale') === 'ar' ? 'en' : 'ar')) }}" title="{{ session('locale') === 'ar' ? 'English' : 'العربية' }}">
-        🌐 {{ session('locale') === 'ar' ? 'EN' : 'AR' }}
-    </a>
 
     <!-- Navigation Links -->
     <nav class="hidden md:flex space-x-6">
-      <a href="{{ route('register') }}" class="hover:underline hover:text-gray-300 transition">{{__("messages.register")}}</a>
-      <a href="{{ route('login') }}" class="hover:underline hover:text-gray-300 transition">{{__("messages.login")}}</a>
-      <a href="{{ route('profile') }}" class="hover:underline hover:text-gray-300 transition">{{__("messages.profile")}}</a>
+      <a href="{{ route('register') }}" class="hover:underline hover:text-gray-300 transition">Register</a>
+      <a href="{{ route('login') }}" class="hover:underline hover:text-gray-300 transition">Login</a>
+      <a href="{{ route('profile') }}" class="hover:underline hover:text-gray-300 transition">Profile</a>
     </nav>
 
     <!-- Greeting -->
     <div class="hidden md:block">
       @auth
-        <span>{{__("messages.hello")}}, {{ auth()->user()->name }}</span>
+        <span>Hello, {{ auth()->user()->user_name }}</span>
       @else
-        <span>{{__("messages.hello")}}, Guest</span>
+        <span>Hello, Guest</span>
       @endauth
     </div>
   </div>
@@ -36,14 +33,14 @@
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="md:hidden hidden bg-gray-800 px-4 pb-4">
     <nav class="flex flex-col space-y-2">
-      <a href="{{ route('register') }}" class="hover:underline hover:text-gray-300 transition">{{__("messages.register")}}</a>
-      <a href="{{ route('login') }}" class="hover:underline hover:text-gray-300 transition">{{__("messages.register")}}</a>
-      <a href="{{ route('profile') }}" class="hover:underline hover:text-gray-300 transition">{{__("messages.register")}}</a>
+      <a href="{{ route('register') }}" class="hover:underline hover:text-gray-300 transition">Register</a>
+      <a href="{{ route('login') }}" class="hover:underline hover:text-gray-300 transition">Login</a>
+      <a href="{{ route('profile') }}" class="hover:underline hover:text-gray-300 transition">Profile</a>
       <div>
         @auth
-          <span>{{__("messages.hello")}}, {{ auth()->user()->name }}</span>
+          <span>Hello, {{ auth()->user()->name }}</span>
         @else
-          <span class="font-bold text-xl hidden md:block">{{__("messages.register")}}, Guest</span>
+          <span class="font-bold text-xl hidden md:block">Hello, Guest</span>
         @endauth
       </div>
     </nav>
