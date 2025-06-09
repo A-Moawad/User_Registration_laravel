@@ -1,10 +1,14 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\SetLocale;  
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WhatsAppCheckController;
+use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'home')->name('home');
+// Wrap all routes inside SetLocale middleware group
+Route::middleware([SetLocale::class])->group(function () {
+
+        Route::view('/', 'home')->name('home');
 
 // Profile page route
 Route::view('/profile', 'profile')->name('profile');
@@ -23,4 +27,17 @@ Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
 
 Route::get('/check-whatsapp', [WhatsAppCheckController::class, 'check']);
+});
+
+// Language switcher route
+Route::get('lang/{locale}', function ($locale) {
+    if (in_array($locale, ['en', 'ar'])) {
+        session(['locale' => $locale]);
+    }
+    return redirect()->back();
+});
+
+
+
+
 
