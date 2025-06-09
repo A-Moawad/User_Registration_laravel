@@ -29,6 +29,11 @@ Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 Route::get('/check-whatsapp', [WhatsAppCheckController::class, 'check']);
 });
 
+
+Route::get('/whatsapp-check', [WhatsAppCheckController::class, 'form'])->name('whatsapp.form');
+Route::post('/whatsapp-check', [WhatsAppCheckController::class, 'check'])->name('whatsapp.check');
+
+
 // Language switcher route
 Route::get('lang/{locale}', function ($locale) {
     if (in_array($locale, ['en', 'ar'])) {
