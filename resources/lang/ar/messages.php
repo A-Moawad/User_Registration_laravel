@@ -31,4 +31,3 @@ return [
 
 
 ];
-#{{__("messages.get_started")}}
