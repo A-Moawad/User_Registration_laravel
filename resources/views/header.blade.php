@@ -20,15 +20,18 @@
     </a>
 
     <!-- Navigation Links -->
-    <nav class="hidden md:flex space-x-6">
-      @guest
-        <a href="{{ route('register') }}" class="hover:underline hover:text-gray-300 transition">{{ __("messages.register") }}</a>
-      @endguest
-      <a href="{{ route('login') }}" class="hover:underline hover:text-gray-300 transition">{{ __("messages.login") }}</a>
-      @auth
-        <a href="{{ route('profile') }}" class="hover:underline hover:text-gray-300 transition">{{ __("messages.profile") }}</a>
-      @endauth
-    </nav>
+   <!-- Navigation Links -->
+<nav class="hidden md:flex space-x-6">
+  @guest
+    <a href="{{ route('register') }}" class="hover:underline hover:text-gray-300 transition">{{ __("messages.register") }}</a>
+    <a href="{{ route('login') }}" class="hover:underline hover:text-gray-300 transition">{{ __("messages.login") }}</a>
+  @endguest
+
+  @auth
+    <a href="{{ route('profile') }}" class="hover:underline hover:text-gray-300 transition">{{ __("messages.profile") }}</a>
+  @endauth
+</nav>
+
 
     <!-- Greeting -->
     <div class="hidden md:block">
@@ -43,21 +46,24 @@
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="md:hidden hidden bg-gray-800 px-4 pb-4">
     <nav class="flex flex-col space-y-2">
-      @guest
-        <a href="{{ route('register') }}" class="hover:underline hover:text-gray-300 transition">{{ __("messages.register") }}</a>
-      @endguest
-      <a href="{{ route('login') }}" class="hover:underline hover:text-gray-300 transition">{{ __("messages.login") }}</a>
-      @auth
-        <a href="{{ route('profile') }}" class="hover:underline hover:text-gray-300 transition">{{ __("messages.profile") }}</a>
-      @endauth
-      <div>
-        @auth
-          <span>{{ __("messages.hello") }}, {{ auth()->user()->name }}</span>
-        @else
-          <span class="font-bold text-xl">{{ __("messages.hello") }}, Guest</span>
-        @endauth
-      </div>
-    </nav>
+  @guest
+    <a href="{{ route('register') }}" class="hover:underline hover:text-gray-300 transition">{{ __("messages.register") }}</a>
+    <a href="{{ route('login') }}" class="hover:underline hover:text-gray-300 transition">{{ __("messages.login") }}</a>
+  @endguest
+
+  @auth
+    <a href="{{ route('profile') }}" class="hover:underline hover:text-gray-300 transition">{{ __("messages.profile") }}</a>
+  @endauth
+
+  <div>
+    @auth
+      <span>{{ __("messages.hello") }}, {{ auth()->user()->user_name }}</span>
+    @else
+      <span class="font-bold text-xl">{{ __("messages.hello") }}, Guest</span>
+    @endauth
+  </div>
+</nav>
+
   </div>
 
   <!-- Script to toggle mobile menu -->
