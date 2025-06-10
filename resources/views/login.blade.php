@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="max-w-md mx-auto bg-white p-8 rounded shadow-md">
-    <h2 class="text-2xl font-bold mb-6 text-center">{{__("messages.register")}}</h2>
+    <h2 class="text-2xl font-bold mb-6 text-center">{{__("messages.login")}}</h2>
 
     @if (session('error'))
         <div class="mb-4 bg-red-100 text-red-700 p-3 rounded">
