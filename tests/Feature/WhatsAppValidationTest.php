@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Http;
 
 class WhatsAppValidationTest extends TestCase
 {
-    /** @test */
+    
     public function it_can_check_if_a_number_is_whatsapp()
     {
         // fake response (اختياري لو مش عاوز تستهلك الـ API فعليًا كل مرة)
@@ -24,7 +24,7 @@ class WhatsAppValidationTest extends TestCase
         ]);
 
         // استدعاء فعلي لـ route بتاعك
-        $response = $this->get('/check-whatsapp');
+       $response = $this->get('/check-whatsapp?phone=1554623506');
 
         $response->assertStatus(200);
         $response->assertSee('447781888081');
