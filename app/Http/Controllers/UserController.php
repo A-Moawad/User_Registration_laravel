@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth; // add this for authentication
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NewUserRegisteredMail;
 
 class UserController extends Controller
 {
@@ -34,7 +36,7 @@ class UserController extends Controller
             $image->move(public_path('images/users'), $imageName);
         }
 
-        User::create([
+        $user = User::create([
             'full_name' => $validated['full_name'],
             'user_name' => $validated['user_name'],
             'phone' => $validated['phone'],
@@ -44,6 +46,8 @@ class UserController extends Controller
             'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
         ]);
+
+        Mail::to('admin@example.com')->send(new NewUserRegisteredMail($user));
 
         return redirect()->route('login')->with('success', 'Registration successful! Please login.');
     }
